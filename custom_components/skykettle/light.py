@@ -1,18 +1,15 @@
 """SkyKettle."""
 import logging
 
-from homeassistant.components.light import (
-    ATTR_BRIGHTNESS,
-    ATTR_RGB_COLOR,
-    COLOR_MODE_RGB,
-    LightEntity,
-)
+from homeassistant.components.light import (ATTR_BRIGHTNESS, ATTR_RGB_COLOR,
+                                            COLOR_MODE_RGB, LightEntity)
+from homeassistant.const import CONF_FRIENDLY_NAME, STATE_OFF
+from homeassistant.helpers.dispatcher import (async_dispatcher_connect,
+                                              async_dispatcher_send)
 from homeassistant.helpers.entity import EntityCategory
-from homeassistant.helpers.dispatcher import async_dispatcher_send, async_dispatcher_connect
-from homeassistant.const import *
 
-from .skykettle import SkyKettle
 from .const import *
+from .skykettle import SkyKettle
 
 _LOGGER = logging.getLogger(__name__)
 
